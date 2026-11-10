@@ -20,20 +20,19 @@ RUN npm run build
 
 FROM nginxinc/nginx-unprivileged:stable-alpine
 
-# Update Alpine OS packages to patched versions
+# Update Alpine OS packages
 USER root
 RUN apk upgrade --no-cache
 
-# Return to non-root user
+# Restore non-root user
 USER 101
 
 # Copy custom Nginx configuration
 COPY nginx/default.conf /etc/nginx/conf.d/default.conf
 
-# Copy React production build
-COPY --from=builder /app/build /usr/share/nginx/html
+# Copy Vite production build
+COPY --from=builder /app/dist /usr/share/nginx/html
 
-# Nginx listens on unprivileged port
 EXPOSE 8080
 
 # Container health check
