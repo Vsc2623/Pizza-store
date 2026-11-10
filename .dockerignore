@@ -1,0 +1,30 @@
+# Dependencies
+node_modules
+
+# React production build
+build
+
+# Git
+.git
+.gitignore
+
+# Environment files and secrets
+.env
+.env.*
+!.env.example
+.npmrc
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+
+# Operating system
+.DS_Store
+
+# IDE
+.vscode
+.idea
+
+# Private keys
+*.pem
+*.key
