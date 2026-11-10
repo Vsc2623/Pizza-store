@@ -12,7 +12,7 @@ on:
 
 jobs:
   build:
-    name: Build and Test
+    name: Build, Audit and Scan
     runs-on: ubuntu-latest
 
     steps:
@@ -33,4 +33,17 @@ jobs:
 
       - name: Build application
         run: npm run build
+
+      - name: Build Docker image
+        run: docker build -t pizza-store:ci-test .
+
+      - name: Scan Docker image with Trivy
+        uses: aquasecurity/trivy-action@0.33.1
+        with:
+          image-ref: pizza-store:ci-test
+          format: table
+          exit-code: '1'
+          ignore-unfixed: true
+          vuln-type: os,library
+          severity: CRITICAL,HIGH
 
