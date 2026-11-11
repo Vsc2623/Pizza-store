@@ -185,3 +185,53 @@ SPACING SYSTEM (px)
 FONT SIZE SYSTEM (px)
 10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 /52 / 62 / 74 / 86 / 98
 */
+
+/* Pizza category filter */
+
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+}
+
+.filter-btn {
+  padding: 1rem 1.8rem;
+  border: 1px solid #d6b13a;
+  background-color: #fff;
+  color: #252525;
+  font-family: inherit;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background-color: #edc84b;
+  border-color: #edc84b;
+}
+
+.pizza-count {
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.pizza-category {
+  font-size: 1.1rem;
+  color: #777;
+}
+
+@media (max-width: 650px) {
+  .pizzas {
+    grid-template-columns: 1fr;
+  }
+
+  .pizza {
+    gap: 1.6rem;
+  }
+
+  .header h1 {
+    font-size: 3.2rem;
+  }
+}
